@@ -53,9 +53,33 @@ let score = 0;
 //ミス
 let miss = 0;
 
+//リザルト画面　スコア
 let scoreText = document.getElementById("scoreText")
-
 let missText = document.getElementById("missText")
+
+//ゲーム画面　スコア
+let scoreNow = document.getElementById("scoreNow")
+let missNow = document.getElementById("missNow")
+
+//キーが押されたら
+document.addEventListener("keydown", pushSpace)
+
+//スタートテキスト
+let startText = document.getElementById("startText");
+
+//スペースキーが押されたら
+function pushSpace(event) {
+    let startText = document.getElementById("startText")
+    if (startText.innerText === "スペースキーを押してスタート！") {
+        if (event.key == event.shiftKey) {
+            setQuestion();
+            countdown()
+            miss = miss -1;           
+        }
+    }
+
+}
+
 
 //問題文を初期化してセットする関数
 function setQuestion() {
@@ -87,16 +111,18 @@ function setQuestion() {
     enteredText =  [];
 }
 
-//最初の問題をセット
-setQuestion();
 
 function action(e) {
+
     //未入力文字配列の１文字目と入力した文字が一致したら
     if(remainedText[0] === e.data) {
         
         //スコア加算
         score = score + 1;
         console.log("score"+score);
+
+        //スコア表示
+        scoreNow.textContent = "スコア : " + score;
 
        //未入力文字配列の一文字目を消して入力済み文字配列に入れる
        enteredText.push(remainedText[0]);
@@ -115,6 +141,9 @@ function action(e) {
         //ミス　加算
         miss = miss + 1;
 
+        //ミス表示
+        missNow.textContent = "ミス : " + miss;
+
         //ミスしたら入力されないようにする
         inputText.value = entered.textContent + "";
     } 
@@ -124,13 +153,13 @@ function action(e) {
 const timer = document.getElementById('timer');
 
 //初期時間
-let TIME = 60;
+let TIME = 30;
 
 //1秒ずつカウントダウン
-const countdown = setInterval(function() {
+function countdown() {setInterval(function() {
     timer.textContent = '制限時間：' + --TIME + '秒';
    if(TIME <= 0) finish();
-   }, 1000);
+   }, 1000)};
 
 //タイマーをとめてでリザルト画面  
 function finish() {
