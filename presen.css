@@ -1,0 +1,97 @@
+.text-container {
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.quesution {
+    display: flex;
+    font-size: 5vw;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    text-align: center;
+}
+
+.text {
+    width: 50%;
+    border: none;
+    margin-top: 2rem;
+    font-size: 3vw;
+    letter-spacing: 0.1em;
+    text-align: center;
+    background-color:  rgba(0,0,0,0.9);
+    color: #fff;
+}
+
+.text:focus, .text:focus-visible {
+    border: none;
+    outline: none;
+}
+
+.marker {
+    background-color: rgb(89, 98, 107);
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    text-align: center;
+    line-height: 10vh;
+    font-size: 3vw;
+    width: 50vw;
+    height: 50vw;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+}
+
+#timer {
+    width: 16vw;
+    height: 5vw;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 5vw;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+}
+
+#name {
+    display: flex;
+    font-size: 2.5vw;
+}
+
+.kazari { 
+    width: 50vw;
+    height: 20vh;
+    position: fixed;
+    bottom: 10vh;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+    line-height: 8vh;
+    padding-left: 1vw;
+    font-size: 1.5vw;
+    letter-spacing: 0.12em;
+}
+
+.bottun {
+    width: 20vw;
+    height: 4vh;
+}
