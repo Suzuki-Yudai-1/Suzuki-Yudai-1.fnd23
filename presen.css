@@ -47,9 +47,9 @@
 .message {
     text-align: center;
     line-height: 10vh;
-    font-size: 3vw;
+    font-size: 2vw;
     width: 50vw;
-    height: 50vw;
+    height: 50vh;
     color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 0 4px #fff inset;
@@ -92,6 +92,27 @@
 }
 
 .bottun {
-    width: 20vw;
-    height: 4vh;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 2vw;
+}
+
+.scorebox {
+    width: 12vw;
+    height: 10vw;
+    font-size: 1.7vw;
+    text-align: center;
+    position: fixed;
+    top: 170px;
+    left: 50px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+}
+#startText {
+    font-size: 3vw;
 }
