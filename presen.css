@@ -116,3 +116,7 @@
 #startText {
     font-size: 3vw;
 }
+
+.bottun:hover {
+    color: aqua;
+}
