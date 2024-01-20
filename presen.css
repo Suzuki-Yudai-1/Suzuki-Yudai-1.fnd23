@@ -100,6 +100,10 @@
   font-size: 2vw;
 }
 
+.bottun:hover {
+    color: aqua;
+}
+
 .scorebox {
     width: 12vw;
     height: 10vw;
@@ -113,10 +117,23 @@
     box-shadow: 0 0 0 4px #fff inset;
     background-color: rgba(0,0,0,0.9);
 }
+
 #startText {
     font-size: 3vw;
 }
 
-.bottun:hover {
-    color: aqua;
+#exp {
+    width: 17vw;
+    height: 5vw;
+    font-size: 2vw;
+    text-align: center;
+    line-height: 5vw;
+    position: fixed;
+    top: 50px;
+    right: 120px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
 }
+
