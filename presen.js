@@ -1,18 +1,26 @@
 'use strict'
 
 const mList = ["suraimu", "suraimubesu", "doraki-", "go-suto", "mahoutukai", "meizidoraki-", "oosasori", "me-da",
-                    "metorogo-suto", "dororu", "doraki-ma", "gaikotu", "madousi", "tetunosasori", "rikannto", "metarusuraimu",
-                    "herugo-suto", "rikanntomarumu", "me-daro-do", "dororumeizi", "kimera", "sinosasori", "siryounokisi", 
-                    "go-remu", "go-rudomann", "yoroinokisi", "meizikimera", "kagenokisi", "kira-rikannto", "doragonn",
-                    "suta-kimera", "daimadou", "akumanokisi", "ki-sudoragonn", "suto-nnmann", "sinigaminokisi", 
-                    "da-sudoragonn", "ryuuou"];
+                "metorogo-suto", "dororu", "doraki-ma", "gaikotu", "madousi", "tetunosasori", "rikannto", "siryou", "metarusuraimu",
+                "herugo-suto", "rikanntomarumu", "me-daro-do", "dororumeizi", "kimera", "sinosasori", "siryounokisi", 
+                "go-remu", "go-rudomann", "yoroinokisi", "meizikimera", "kagenokisi", "kira-rikannto", "doragonn",
+                "suta-kimera", "daimadou", "akumanokisi", "ki-sudoragonn", "suto-nnmann", "sinigaminokisi", 
+                "da-sudoragonn", "ryuuou"];
 
 const mList2 = ["スライム", "スライムベス", "ドラキー", "ゴースト", "まほうつかい", "メイジドラキー", "おおさそり", "メーダ",
-                    "メトロゴースト", "ドロル", "ドラキーマ", "がいこつ", "まどうし", "てつのさそり", "リカント", "メタルスライム",
-                    "ヘルゴースト", "リカントマルム", "メーダロード", "ドロルメイジ", "キメラ", "しのさそり", "しりょうのきし", 
-                    "ゴーレム", "ゴールドマン", "よろいのきし", "メイジキメラ", "かげのきし", "キラーリカント", "ドラゴン",
-                    "スターキメラ", "だいまどう", "あくまのきし", "キースドラゴン", "ストーンマン", "しにがみのきし", 
-                    "ダースドラゴン", "りゅうおう"];
+                "メトロゴースト", "ドロル", "ドラキーマ", "がいこつ", "まどうし", "てつのさそり", "リカント", "しりょう", "メタルスライム",
+                "ヘルゴースト", "リカントマルム", "メーダロード", "ドロルメイジ", "キメラ", "しのさそり", "しりょうのきし", 
+                "ゴーレム", "ゴールドマン", "よろいのきし", "メイジキメラ", "かげのきし", "キラーリカント", "ドラゴン",
+                "スターキメラ", "だいまどう", "あくまのきし", "キースドラゴン", "ストーンマン", "しにがみのきし", 
+                "ダースドラゴン", "りゅうおう"];
+
+const mList3 = [1, 2, 3, 4, 8, 12, 16, 14,
+                15, 18, 20, 25, 28, 31, 40, 42, 775,
+                47, 52, 56, 58, 64, 70, 72, 
+                2500, 6, 78, 83, 90, 95, 950,
+                105, 120, 130, 180, 155, 172, 
+                350, 0];
+
 
 //テキストが打たれたらacutionを実行
 document.addEventListener("input", action)
@@ -53,24 +61,29 @@ let score = 0;
 //ミス
 let miss = 0;
 
+//経験値
+let exp = 0;
+
 //リザルト画面　スコア
-let scoreText = document.getElementById("scoreText")
-let missText = document.getElementById("missText")
+let scoreText = document.getElementById("scoreText");
+let missText = document.getElementById("missText");
+let expText = document.getElementById("expText");
 
 //ゲーム画面　スコア
-let scoreNow = document.getElementById("scoreNow")
-let missNow = document.getElementById("missNow")
+let scoreNow = document.getElementById("scoreNow");
+let missNow = document.getElementById("missNow");
+let expNow = document.getElementById("exp");
 
 //キーが押されたら
-document.addEventListener("keydown", pushSpace)
+document.addEventListener("keydown", pushSpace);
 
 //スタートテキスト
 let startText = document.getElementById("startText");
 
 //スペースキーが押されたら
 function pushSpace(event) {
-    let startText = document.getElementById("startText")
-    if (startText.innerText === "スペースキーを押してスタート！") {
+    let startText = document.getElementById("startText");
+    if (startText.textContent === "スペースキーを押してスタート！") {
         if (event.key == event.shiftKey) {
             setQuestion();
             countdown()
@@ -119,7 +132,6 @@ function action(e) {
         
         //スコア加算
         score = score + 1;
-        console.log("score"+score);
 
         //スコア表示
         scoreNow.textContent = "スコア : " + score;
@@ -134,8 +146,14 @@ function action(e) {
        
        //未入力文字が0になったら問題をセットする
        if(remainedText.length === 0) {
+
+          //経験値表示
+          exp = exp + mList3[random];
+          expNow.textContent = "経験値 : " + exp;
+          mList3.splice(random, 1);
           setQuestion();
        }
+        
     } else {
 
         //ミス　加算
@@ -168,6 +186,7 @@ function finish() {
    result.classList.remove("hidden");
    scoreText.textContent = "スコア : " +  score;
    missText.textContent = "ミス : " +  miss;
+   expText.textContent = "経験値 : " + exp;
 }
 
 //リプレイボタンを押したとき
