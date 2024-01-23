@@ -171,7 +171,7 @@ function action(e) {
 const timer = document.getElementById('timer');
 
 //初期時間
-let TIME = 30;
+let TIME = 60;
 
 //1秒ずつカウントダウン
 function countdown() {setInterval(function() {
